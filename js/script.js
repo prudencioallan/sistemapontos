@@ -642,16 +642,16 @@ function initSampleData() {
     if (collaborators.length === 0) {
         // Adicionar colaboradores de exemplo
         const sampleCollaborators = [
-            'Alex Varela Laurentino',
-            'Allan Prudencio Silva',
-            'Amabile Gargioni de Lima Vieira',
-            'Elson Mateus dos Santos',
-            'Filipe Henrique da Mata Melo',
+            'Alex Varela',
+            'Allan Prudencio',
+            'Amabile Vieira',
+            'Elson dos Santos',
+            'Filipe Melo',
             'Esther Eschembach',
-            'Mateus Zatti Padilha',
-            'Matheus Henrique Miranda Silva',
-            'Rodrigo da Silva Costa',
-            'Tatiane Elizabete Conrad Coelho'
+            'Mateus Zatti',
+            'Matheus Henrique',
+            'Rodrigo da Silva',
+            'Tatiane Elizabete'
         ];
         
         sampleCollaborators.forEach(name => {
