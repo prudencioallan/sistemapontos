@@ -3,39 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Atrasos</title>
+    <title>Ranking de Atrasos</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Registro de Atrasos</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Registrar Atraso</a></li>
-                <li><a href="ranking.html">Ranking</a></li>
-                <li><a href="admin.html">Administração</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="registro-atraso">
-            <h2>Registrar Novo Atraso</h2>
-            <form id="form-registro">
-                <label for="colaborador">Colaborador:</label>
-                <select id="colaborador" required>
-                    <!-- Opções de colaboradores serão carregadas via JS -->
-                </select>
-                <label for="data-atraso">Data do Atraso:</label>
-                <input type="date" id="data-atraso" required>
-                <label for="minutos-atraso">Minutos de Atraso:</label>
-                <input type="number" id="minutos-atraso" min="1" required>
-                <button type="submit">Registrar</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Registro de Atrasos</p>
-    </footer>
+    <div class="container">
+        <header class="header">
+            <h1>⏰ Ranking de Atrasos</h1>
+            <p class="month-info">Mês: <span id="current-month">2025-07</span></p>
+            <p class="update-info">Atualização automática a cada 30 segundos</p>
+        </header>
+
+        <main>
+            <!-- Seção "Quem Paga o Café Este Mês" -->
+            <section class="coffee-section">
+                <h2>☕ Quem Paga o Café Este Mês</h2>
+                <div class="coffee-winner" id="coffee-winner">
+                    <div class="winner-info">
+                        <span class="trophy">🏆</span>
+                        <span class="winner-name" id="winner-name">Carregando...</span>
+                        <span class="winner-points" id="winner-points">- 0 pontos</span>
+                    </div>
+                    <p class="winner-delays" id="winner-delays">0 atraso(s) registrado(s)</p>
+                </div>
+            </section>
+
+            <!-- Seção de Classificação Geral -->
+            <section class="ranking-section">
+                <h2>📊 Classificação Geral</h2>
+                <div class="table-container">
+                    <table class="ranking-table" id="ranking-table">
+                        <thead>
+                            <tr>
+                                <th>POSIÇÃO</th>
+                                <th>NOME</th>
+                                <th>PONTOS</th>
+                                <th>AVISOS USADOS</th>
+                                <th>ATRASOS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ranking-tbody">
+                            <!-- Dados serão carregados via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Seção de Regras de Pontuação -->
+            <section class="rules-section">
+                <h2>📋 Regras de Pontuação</h2>
+                <div class="rules-content">
+                    <div class="rule-group">
+                        <h3>✅ Se avisou antes das 9h:</h3>
+                        <ul>
+                            <li>• Chegou até 09h10 → 0 pontos</li>
+                            <li>• Chegou após 09h10 → 1-2 pontos</li>
+                        </ul>
+                    </div>
+                    <div class="rule-group">
+                        <h3>❌ Se não avisou antes das 9h:</h3>
+                        <ul>
+                            <li>• Qualquer horário → 2-3 pontos</li>
+                        </ul>
+                    </div>
+                    <div class="rule-group">
+                        <p>🍽️ Excedeu 1h de almoço: +1 ponto adicional</p>
+                        <p>📝 Limite: 3 avisos por mês. Depois disso, pontuação aumenta.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Link para área administrativa -->
+        <div class="admin-link">
+            <a href="admin.html" class="admin-button">🔧 Área Administrativa</a>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
 </body>
 </html>

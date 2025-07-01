@@ -3,64 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administração de Atrasos</title>
+    <title>Área Administrativa - Ranking de Atrasos</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Administração de Atrasos</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Registrar Atraso</a></li>
-                <li><a href="ranking.html">Ranking</a></li>
-                <li><a href="admin.html">Administração</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="login">
-            <h2>Login de Administração</h2>
-            <form id="form-login">
-                <label for="username">Usuário:</label>
-                <input type="text" id="username" required>
-                <label for="password">Senha:</label>
-                <input type="password" id="password" required>
-                <button type="submit">Entrar</button>
-            </form>
-            <p id="login-message" class="error"></p>
-        </section>
+    <div class="container">
+        <!-- Tela de Login -->
+        <div class="login-screen" id="login-screen">
+            <div class="login-card">
+                <h1>🔒 Área Administrativa</h1>
+                <p>Digite a senha para acessar</p>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" placeholder="Digite a senha..." required>
+                    </div>
+                    <button type="submit" class="btn-primary">Entrar</button>
+                </form>
+                <div class="login-error" id="login-error"></div>
+                <a href="index.html" class="back-link">← Voltar ao Ranking</a>
+            </div>
+        </div>
 
-        <section id="admin-panel" style="display:none;">
-            <h2>Gerenciar Colaboradores</h2>
-            <form id="form-colaborador">
-                <label for="nome-colaborador">Nome do Colaborador:</label>
-                <input type="text" id="nome-colaborador" required>
-                <button type="submit">Adicionar Colaborador</button>
-            </form>
-            <h3>Colaboradores Cadastrados</h3>
-            <ul id="lista-colaboradores">
-                <!-- Colaboradores serão carregados via JS -->
-            </ul>
+        <!-- Painel Administrativo -->
+        <div class="admin-panel" id="admin-panel" style="display: none;">
+            <header class="admin-header">
+                <h1>⚙️ Painel Administrativo</h1>
+                <p>Registrar atrasos dos colaboradores</p>
+            </header>
 
-            <h2>Gerenciar Atrasos</h2>
-            <table id="tabela-atrasos">
-                <thead>
-                    <tr>
-                        <th>Colaborador</th>
-                        <th>Data</th>
-                        <th>Minutos</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Atrasos serão carregados via JS -->
-                </tbody>
-            </table>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Registro de Atrasos</p>
-    </footer>
+            <main>
+                <!-- Seção de Registro de Atraso -->
+                <section class="register-section">
+                    <h2>📝 Registrar Atraso</h2>
+                    <form id="register-form" class="register-form">
+                        <div class="form-group">
+                            <label for="collaborator">👤 Nome do Colaborador: *</label>
+                            <select id="collaborator" required>
+                                <option value="">Selecione um colaborador...</option>
+                                <!-- Opções serão carregadas via JavaScript -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="arrival-time">🕐 Hora de Chegada: *</label>
+                            <input type="time" id="arrival-time" required>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="notified-before-9">
+                                <span class="checkmark">✅</span>
+                                Avisou antes das 9h no grupo?
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="exceeded-lunch">
+                                <span class="checkmark">🍽️</span>
+                                Excedeu 1 hora de almoço?
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-primary">📝 Registrar Atraso</button>
+                    </form>
+                </div>
+
+                <!-- Seção de Gerenciamento de Colaboradores -->
+                <section class="management-section">
+                    <h2>👥 Gerenciar Colaboradores</h2>
+                    <form id="add-collaborator-form" class="add-form">
+                        <div class="form-group">
+                            <label for="new-collaborator">Nome do Novo Colaborador:</label>
+                            <input type="text" id="new-collaborator" placeholder="Digite o nome completo..." required>
+                        </div>
+                        <button type="submit" class="btn-secondary">➕ Adicionar Colaborador</button>
+                    </form>
+                    
+                    <div class="collaborators-list">
+                        <h3>Colaboradores Cadastrados</h3>
+                        <ul id="collaborators-list">
+                            <!-- Lista será carregada via JavaScript -->
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Seção de Histórico de Atrasos -->
+                <section class="history-section">
+                    <h2>📊 Histórico de Atrasos</h2>
+                    <div class="table-container">
+                        <table class="history-table" id="history-table">
+                            <thead>
+                                <tr>
+                                    <th>DATA</th>
+                                    <th>COLABORADOR</th>
+                                    <th>HORA CHEGADA</th>
+                                    <th>AVISOU</th>
+                                    <th>ALMOÇO</th>
+                                    <th>PONTOS</th>
+                                    <th>AÇÕES</th>
+                                </tr>
+                            </thead>
+                            <tbody id="history-tbody">
+                                <!-- Dados serão carregados via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Botões de Navegação -->
+            <div class="admin-navigation">
+                <a href="index.html" class="btn-secondary">📊 Ver Ranking</a>
+                <button id="logout-btn" class="btn-danger">🚪 Sair</button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/script.js"></script>
 </body>
 </html>
