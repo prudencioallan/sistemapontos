@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração de Atrasos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Administração de Atrasos</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Registrar Atraso</a></li>
+                <li><a href="ranking.html">Ranking</a></li>
+                <li><a href="admin.html">Administração</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="login">
+            <h2>Login de Administração</h2>
+            <form id="form-login">
+                <label for="username">Usuário:</label>
+                <input type="text" id="username" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p id="login-message" class="error"></p>
+        </section>
+
+        <section id="admin-panel" style="display:none;">
+            <h2>Gerenciar Colaboradores</h2>
+            <form id="form-colaborador">
+                <label for="nome-colaborador">Nome do Colaborador:</label>
+                <input type="text" id="nome-colaborador" required>
+                <button type="submit">Adicionar Colaborador</button>
+            </form>
+            <h3>Colaboradores Cadastrados</h3>
+            <ul id="lista-colaboradores">
+                <!-- Colaboradores serão carregados via JS -->
+            </ul>
+
+            <h2>Gerenciar Atrasos</h2>
+            <table id="tabela-atrasos">
+                <thead>
+                    <tr>
+                        <th>Colaborador</th>
+                        <th>Data</th>
+                        <th>Minutos</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Atrasos serão carregados via JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Registro de Atrasos</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
